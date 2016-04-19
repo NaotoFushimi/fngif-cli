@@ -1,5 +1,7 @@
 # fngif-cli
 
+very vimple script for convert movie to gif
+
 ## 自分用テスト
 ## private test script.
 
@@ -16,6 +18,7 @@ npm install -g fngif-cli
 
 ```
 
+## Use
 ```
 fngif-cli -i xxxxx.MP4 -s 30 -e 5 -f 10
 
