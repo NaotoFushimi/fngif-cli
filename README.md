@@ -22,7 +22,13 @@ npm install -g fngif-cli
 ```
 fngif-cli -i xxxxx.MP4 -s 30 -e 5 -f 10
 
+# required
+
 -i  ...input file<string>
+-o  ...output gif <string>
+
+# option
+
 -s  ...start seconeds<int>
 -e  ...capture time <int>
 -f  ...framerate <int>
