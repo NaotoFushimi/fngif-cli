@@ -1,5 +1,5 @@
 {
-  "name": "nfgif-cli",
+  "name": "fngif-cli",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -12,6 +12,6 @@
     "argv": "0.0.2"
   },
   "bin": {
-    "nfgif-cli": "bin/fngif"
+    "fngif-cli": "bin/fngif"
   }
 }
