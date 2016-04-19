@@ -11,8 +11,8 @@ argv.option({
 });
 
 argv.option({
-	name: 'dest',
-	short: 'd',
+	name: 'out',
+	short: 'o',
 	type : 'string',
 	description :'あなたのスクリプトのオプションを定義します',
 	example: "'script --option=value' or 'script -o value'"
@@ -59,10 +59,23 @@ var startTime = arg.start;
 var time = arg.end;
 var rate = arg.framerate;
 var resize = arg.convert;
+var out = arg.out;
 
 if (fileName == null){
   console.log("ファイルが指定されてない");
   return;
+}
+
+if (out == null){
+  console.log("出力ファイルが指定されてない");
+  return;
+}
+
+var _split = out.split(".");
+if (_split[_split.length - 1] != "gif" ){
+  console.log("outがgifじゃない");
+  return;
+    
 }
 
 var exec = require('child_process').exec;
@@ -74,7 +87,7 @@ var resizeText = resize == null ? "" : "-resize " + 100 * resize + "%";
 
 var cmd1 = 'rm -rf testDir; mkdir testDir; ffmpeg -i ' + fileName + rateText + endText + startText +  ' testDir/test_' + fileName +  ' ';
 var cmd2 = "ffmpeg -i " + ' testDir/test_' + fileName +  " testDir/%04d.png";
-var cmd3 = "convert " + resizeText + "  testDir/*.png out.gif ; rm -rf testDir;";
+var cmd3 = "convert " + resizeText + "  testDir/*.png " + out + "; rm -rf testDir;";
 console.log(cmd1);
 exec(cmd1, function (error, stdout, stderr) {
   if(stdout){
